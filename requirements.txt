@@ -1,0 +1,29 @@
+# Hard prerequisites (install first)
+Hygiene>=1.0
+CleanWardrobe>=1.0
+Sleep>=7h
+SocialEnvironments>=2.0    # recurring weekly venues
+ConfidenceFakeIt>=0.1      # bootstrap until Confidence>=1.0
+BasicFitness>=0.3          # walk/run/lift 3x/week
+TimeBlocks>=3_per_week
+
+# Soft skills
+EyeContact~=2-3sec
+AAQ_ConversationLoop>=1.0
+SpecificInvite>=1.0
+RejectionGrace>=1.0
+ConsentClear>=1.0
+Humor>=0.2
+Listening>=1.0
+
+# Optional plugins
+DatingApps>=1.0
+PhotoSet>=4
+Storytelling>=0.3
+DanceOrClimb>=0.1
+
+# Things that break the build (do NOT install)
+Negging==0
+TraumaDumping==0
+Scorekeeping==0
+HotTakesOnDate1==0

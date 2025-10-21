@@ -1,0 +1,64 @@
+name: Deploy-Relationship-Habits
+
+on:
+  schedule:
+    # Morning routine daily at 08:00; social blocks Tue/Thu/Wed; weekly review Sun 18:00
+    - cron: "0 8 * * *"
+    - cron: "0 17 * * 2,3,4"
+    - cron: "0 18 * * 0"
+  workflow_dispatch:
+
+jobs:
+  morning_routine:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Hygiene & fit check
+        run: |
+          echo "Shower, deodorant, hair, nails."
+          echo "Choose clean outfit: casual or date-fit."
+
+      - name: Mindset warmup
+        run: |
+          echo "3 deep breaths, two conversation starters."
+          echo "A-A-Q pattern refresh."
+
+  social_block:
+    if: startsWith(github.event.schedule, '0 17')  # Tue/Wed/Thu 17:00 blocks
+    runs-on: ubuntu-latest
+    steps:
+      - name: Venue cadence
+        run: |
+          echo "Arrive on time. 90 minutes. No headphones."
+          echo "Start 2+ conversations. Make 1 specific invite."
+
+      - name: Invite
+        run: |
+          echo "Example: Free Thu 17:00 for coffee at <café>?"
+
+  date_night:
+    runs-on: ubuntu-latest
+    if: ${{ always() }}
+    steps:
+      - name: Plan first date
+        run: |
+          echo "Pick a 60–90 min plan: coffee + short walk/bookstore."
+          echo "Budget-friendly, near campus."
+
+      - name: Execution
+        run: |
+          echo "Phone face down. 60/40 talk ratio. End with next-step ask."
+
+  weekly_review:
+    if: startsWith(github.event.schedule, '0 18 * * 0')  # Sunday 18:00
+    runs-on: ubuntu-latest
+    steps:
+      - name: Metrics
+        run: |
+          echo "Conversations started: ?"
+          echo "Invites sent: ?  Yes rate: ?%"
+          echo "First dates: ?   Second dates: ?"
+          echo "One improvement for next week: ?"
+
+      - name: Update photos/scripts
+        run: |
+          echo "Refresh one photo OR refine one opener."
